@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appcorenet
+  namespace: default
+  labels:
+    app: net
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: net
+  template:
+    metadata:
+      labels:
+        app: net
+    spec:
+      containers:
+      - image: josedom24/app_corenet:v1
+        name: corenet
+        ports:
+        - name: http
+          containerPort: 80
+
