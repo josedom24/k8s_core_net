@@ -23,43 +23,38 @@
 
 En el directorio `k8s` tenemos los ficheros yaml para desplegar la aplicación (la versión 1):
 
-    ```
     kubectl apply -f deployment.yaml --record
     kubectl apply -f service_np.yaml
-    ```
+    
 
 Vemos el historial de despliegues:
 
-    ```
     kubectl rollout history deployment/appcorenet
     deployment.apps/appcorenet 
     REVISION  CHANGE-CAUSE
     1         kubectl apply --filename=deployment.yaml --record=true
-    ```
+    
 
 Accedemos al puerto asignado por el servicio y comprobamos que la aplicación v1 está funcionando.
 
 Podemos escalar la aplicación:
 
-    ```kubectl scale deployment/appcorenet --replicas=3```
+    kubectl scale deployment/appcorenet --replicas=3
 
 
 Podemos actualizar la versión de la aplicación, por ejemplo:
 
-    ```
     kubectl set image deployment/appcorenet corenet=josedom24/app_corenet:v2 --all --record
-    ```
 
-    ```
+
     kubectl rollout history deployment/appcorenet                                      
     deployment.apps/appcorenet 
     REVISION  CHANGE-CAUSE
     1         kubectl set image deployment/appcorenet appcorenet=josedom24/app_corenet:v2 --all=true --record=true
     2         kubectl set image deployment/appcorenet corenet=josedom24/app_corenet:v2 --all=true --record=true
-    ```
+
 
 ¿Cómo podemos volver a la versión 1?
 
-    ```
     kubectl rollout undo deployment/appcorenet
-    ```
+
