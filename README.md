@@ -6,9 +6,9 @@
 
 2. Siguiendo el tutorial de docker: [Dockerize an ASP.NET Core application] hemos creado una imagen docker con nuestra aplicación y la hemos subido a docker hub con la etiqueta `v1`:
 
-    `bash
+    ```
     sudo docker build -t josedom24/app_corenet:v1 .
     sudo docker login
     sudo docker push josedom24/app_corenet:v1
-    `
+    ```
 3. 
