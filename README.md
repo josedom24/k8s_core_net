@@ -50,7 +50,7 @@ Podemos actualizar la versión de la aplicación, por ejemplo:
     kubectl rollout history deployment/appcorenet                                      
     deployment.apps/appcorenet 
     REVISION  CHANGE-CAUSE
-    1         kubectl set image deployment/appcorenet appcorenet=josedom24/app_corenet:v2 --all=true --record=true
+    1         kubectl apply --filename=deployment.yaml --record=true
     2         kubectl set image deployment/appcorenet corenet=josedom24/app_corenet:v2 --all=true --record=true
 
 
